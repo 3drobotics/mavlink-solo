@@ -1306,7 +1306,8 @@ mode_mapping_acm = {
     13 : 'SPORT',
     14 : 'FLIP',
     15 : 'AUTOTUNE',
-    16 : 'POSHOLD'
+    16 : 'POSHOLD',
+    17 : 'BRAKE'
     }
 mode_mapping_rover = {
     0 : 'MANUAL',
