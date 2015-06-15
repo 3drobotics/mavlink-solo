@@ -20,6 +20,7 @@ MAVLINK_HELPER mavlink_status_t* mavlink_get_channel_status(uint8_t chan)
 #ifdef MAVLINK_EXTERNAL_RX_STATUS
 	// No m_mavlink_status array defined in function,
 	// has to be defined externally
+	extern mavlink_status_t m_mavlink_status[MAVLINK_COMM_NUM_BUFFERS];
 #else
 	static mavlink_status_t m_mavlink_status[MAVLINK_COMM_NUM_BUFFERS];
 #endif
@@ -37,6 +38,7 @@ MAVLINK_HELPER mavlink_message_t* mavlink_get_channel_buffer(uint8_t chan)
 #ifdef MAVLINK_EXTERNAL_RX_BUFFER
 	// No m_mavlink_buffer array defined in function,
 	// has to be defined externally
+	extern mavlink_message_t m_mavlink_buffer[MAVLINK_COMM_NUM_BUFFERS];
 #else
 	static mavlink_message_t m_mavlink_buffer[MAVLINK_COMM_NUM_BUFFERS];
 #endif
