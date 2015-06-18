@@ -25,12 +25,14 @@ extern "C" {
 
 // This is necessary because the uint64_t and int64_t definitions are only enabled in stdint.h if __TMS320C28X__ is defined
 // This must only be defined by the compiler under specific circumstances (which I haven't figured out yet), because sometimes the
-// stdint.h definitions are enabled and sometimes they aren't.  To ensure this file will always compile, add the typedefs ourselves
-// if the stdint.h ones don't come through
-#ifndef uint64_t
+// stdint.h definitions are enabled and sometimes they aren't. This is a little brittle - on newer versions of the TI toolchain,
+// you may need to inspect stdint.h to ensure the conditions in which uint64_t and int64_t are defined are still compatible.
+
+#ifndef __TMS320C28X__
 typedef unsigned long long uint64_t;
 #endif
-#ifndef int64_t
+
+#ifndef __TMS320C28X__
 typedef long long int64_t;
 #endif
 
