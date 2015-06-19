@@ -254,8 +254,104 @@
       <entry name="GOPRO_COMMAND_MODEL" value="4">
         <description>(Get/___)</description>
       </entry>
+      <entry name="GOPRO_COMMAND_RESOLUTION" value="5">
+        <description>(___/Set)</description>
+      </entry>
+      <entry name="GOPRO_COMMAND_FRAME_RATE" value="6">
+        <description>(___/Set)</description>
+      </entry>
+      <entry name="GOPRO_COMMAND_FIELD_OF_VIEW" value="7">
+        <description>(___/Set)</description>
+      </entry>
       <entry name="GOPRO_COMMAND_REQUEST_FAILED" value="254">
         <description>(Get/___)</description>
+      </entry>
+    </enum>
+
+    <enum name="GOPRO_RESOLUTION">
+      <entry name="GOPRO_RESOLUTION_480p" value="0">
+        <description>848 x 480 (480p)</description>
+      </entry>
+      <entry name="GOPRO_RESOLUTION_720p" value="1">
+        <description>1280 x 720 (720p)</description>
+      </entry>
+      <entry name="GOPRO_RESOLUTION_960p" value="2">
+        <description>1280 x 960 (960p)</description>
+      </entry>
+      <entry name="GOPRO_RESOLUTION_1080p" value="3">
+        <description>1920 x 1080 (1080p)</description>
+      </entry>
+      <entry name="GOPRO_RESOLUTION_1440p" value="4">
+        <description>1920 x 1440 (1440p)</description>
+      </entry>
+      <entry name="GOPRO_RESOLUTION_2_7k_16_9" value="5">
+        <description>2704 x 1524 (2.7k-16:9)</description>
+      </entry>
+      <entry name="GOPRO_RESOLUTION_4k_16_9" value="6">
+        <description>3840 x 2160 (4k-16:9)</description>
+      </entry>
+      <entry name="GOPRO_RESOLUTION_2_7k_17_9" value="7">
+        <description>2704 x 1440 (2.7k-17:9)</description>
+      </entry>
+      <entry name="GOPRO_RESOLUTION_4k_17_9" value="8">
+        <description>4096 x 2160 (4k-17:9)</description>
+      </entry>
+      <entry name="GOPRO_RESOLUTION_1080p_SUPERVIEW" value="9">
+        <description>1920 x 1080 (1080p-SuperView)</description>
+      </entry>
+      <entry name="GOPRO_RESOLUTION_720p_SUPERVIEW" value="10">
+        <description>1280 x 720 (720p-SuperView)</description>
+      </entry>
+    </enum>
+
+    <enum name="GOPRO_FRAME_RATE">
+      <entry name="GOPRO_FRAME_RATE_12" value="0">
+        <description>12 FPS</description>
+      </entry>
+      <entry name="GOPRO_FRAME_RATE_15" value="1">
+        <description>15 FPS</description>
+      </entry>
+      <entry name="GOPRO_FRAME_RATE_24" value="2">
+        <description>24 FPS</description>
+      </entry>
+      <entry name="GOPRO_FRAME_RATE_25" value="3">
+        <description>25 FPS</description>
+      </entry>
+      <entry name="GOPRO_FRAME_RATE_30" value="4">
+        <description>30 FPS</description>
+      </entry>
+      <entry name="GOPRO_FRAME_RATE_48" value="5">
+        <description>48 FPS</description>
+      </entry>
+      <entry name="GOPRO_FRAME_RATE_50" value="6">
+        <description>50 FPS</description>
+      </entry>
+      <entry name="GOPRO_FRAME_RATE_60" value="7">
+        <description>60 FPS</description>
+      </entry>
+      <entry name="GOPRO_FRAME_RATE_100" value="8">
+        <description>100 FPS</description>
+      </entry>
+      <entry name="GOPRO_FRAME_RATE_120" value="9">
+        <description>120 FPS</description>
+      </entry>
+      <entry name="GOPRO_FRAME_RATE_240" value="10">
+        <description>240 FPS</description>
+      </entry>
+      <entry name="GOPRO_FRAME_RATE_12_5" value="11">
+        <description>12.5 FPS</description>
+      </entry>
+    </enum>
+
+    <enum name="GOPRO_FIELD_OF_VIEW">
+      <entry name="GOPRO_FIELD_OF_VIEW_WIDE" value="0">
+        <description>0x00: Wide</description>
+      </entry>
+      <entry name="GOPRO_FIELD_OF_VIEW_MEDIUM" value="1">
+        <description>0x01: Medium</description>
+      </entry>
+      <entry name="GOPRO_FIELD_OF_VIEW_NARROW" value="2">
+        <description>0x02: Narrow</description>
       </entry>
     </enum>
 
