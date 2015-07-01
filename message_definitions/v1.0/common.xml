@@ -1729,77 +1729,24 @@
                   <description>Payload battery</description>
               </entry>
           </enum>
-          <enum name="MAV_VTOL_STATE">
-              <description>Enumeration of VTOL states</description>
-              <entry value="0" name="MAV_VTOL_STATE_UNDEFINED">
-                  <description>MAV is not configured as VTOL</description>
-              </entry>
-              <entry value="1" name="MAV_VTOL_STATE_TRANSITION_TO_FW">
-                  <description>VTOL is in transition from multicopter to fixed-wing</description>
-              </entry>
-              <entry value="2" name="MAV_VTOL_STATE_TRANSITION_TO_MC">
-                  <description>VTOL is in transition from fixed-wing to multicopter</description>
-              </entry>
-              <entry value="3" name="MAV_VTOL_STATE_MC">
-                  <description>VTOL is in multicopter state</description>
-              </entry>
-              <entry value="4" name="MAV_VTOL_STATE_FW">
-                  <description>VTOL is in fixed-wing state</description>
-              </entry>
-          </enum>
-          <enum name="MAV_LANDED_STATE">
-              <description>Enumeration of landed detector states</description>
-              <entry value="0" name="MAV_LANDED_STATE_UNDEFINED">
-                  <description>MAV landed state is unknown</description>
-              </entry>
-              <entry value="1" name="MAV_LANDED_STATE_ON_GROUND">
-                  <description>MAV is landed (on ground)</description>
-              </entry>
-              <entry value="2" name="MAV_LANDED_STATE_IN_AIR">
-                  <description>MAV is in air</description>
-              </entry>
-          </enum>
-          <enum name="ADSB_ALTITUDE_TYPE">
-              <description>Enumeration of the ADSB altimeter types</description>
-              <entry value="0" name="ADSB_ALTITUDE_TYPE_PRESSURE_QNH">
-                  <description>Altitude reported from a Baro source using QNH reference</description>
-              </entry>
-              <entry value="1" name="ADSB_ALTITUDE_TYPE_GEOMETRIC">
-                  <description>Altitude reported from a GNSS source</description>
-              </entry>
-          </enum>
-          <enum name="ADSB_EMITTER_TYPE">
-              <description>ADSB classification for the type of vehicle emitting the transponder signal</description>
-              <entry value="0" name="ADSB_EMITTER_TYPE_NO_INFO"></entry>
-              <entry value="1" name="ADSB_EMITTER_TYPE_LIGHT"></entry>
-              <entry value="2" name="ADSB_EMITTER_TYPE_SMALL"></entry>
-              <entry value="3" name="ADSB_EMITTER_TYPE_LARGE"></entry>
-              <entry value="4" name="ADSB_EMITTER_TYPE_HIGH_VORTEX_LARGE"></entry>
-              <entry value="5" name="ADSB_EMITTER_TYPE_HEAVY"></entry>
-              <entry value="6" name="ADSB_EMITTER_TYPE_HIGHLY_MANUV"></entry>
-              <entry value="7" name="ADSB_EMITTER_TYPE_ROTOCRAFT"></entry>
-              <entry value="8" name="ADSB_EMITTER_TYPE_UNASSIGNED"></entry>
-              <entry value="9" name="ADSB_EMITTER_TYPE_GLIDER"></entry>
-              <entry value="10" name="ADSB_EMITTER_TYPE_LIGHTER_AIR"></entry>
-              <entry value="11" name="ADSB_EMITTER_TYPE_PARACHUTE"></entry>
-              <entry value="12" name="ADSB_EMITTER_TYPE_ULTRA_LIGHT"></entry>
-              <entry value="13" name="ADSB_EMITTER_TYPE_UNASSIGNED2"></entry>
-              <entry value="14" name="ADSB_EMITTER_TYPE_UAV"></entry>
-              <entry value="15" name="ADSB_EMITTER_TYPE_SPACE"></entry>
-              <entry value="16" name="ADSB_EMITTER_TYPE_UNASSGINED3"></entry>
-              <entry value="17" name="ADSB_EMITTER_TYPE_EMERGENCY_SURFACE"></entry>
-              <entry value="18" name="ADSB_EMITTER_TYPE_SERVICE_SURFACE"></entry>
-              <entry value="19" name="ADSB_EMITTER_TYPE_POINT_OBSTACLE"></entry>
-          </enum>
-          <enum name="ADSB_FLAGS">
-              <description>These flags indicate status such as data validity of each data source. Set = data valid</description>
-              <entry value="1" name="ADSB_FLAGS_VALID_COORDS"></entry>
-              <entry value="2" name="ADSB_FLAGS_VALID_ALTITUDE"></entry>
-              <entry value="4" name="ADSB_FLAGS_VALID_HEADING"></entry>
-              <entry value="8" name="ADSB_FLAGS_VALID_VELOCITY"></entry>
-              <entry value="16" name="ADSB_FLAGS_VALID_CALLSIGN"></entry>
-              <entry value="32" name="ADSB_FLAGS_SIMULATED"></entry>
-          </enum>
+          <enum name="MAV_REMOTE_LOG_DATA_BLOCK_COMMANDS">
+               <description>Special ACK block numbers control activation of dataflash log streaming</description>
+               <entry value="4294967294" name="MAV_REMOTE_LOG_DATA_BLOCK_STOP">
+                    <description>UAV to stop sending DataFlash blocks</description>
+               </entry>
+               <entry value="4294967295" name="MAV_REMOTE_LOG_DATA_BLOCK_START">
+                    <description>UAV to start sending DataFlash blocks</description>
+               </entry>
+	  </enum>
+          <enum name="MAV_REMOTE_LOG_DATA_BLOCK_STATUSES">
+               <description>Possible remote log data block statuses</description>
+               <entry value="0" name="MAV_REMOTE_LOG_DATA_BLOCK_NACK">
+                    <description>This block has NOT been received</description>
+               </entry>
+               <entry value="1" name="MAV_REMOTE_LOG_DATA_BLOCK_ACK">
+                    <description>This block has been received</description>
+               </entry>
+	  </enum>
      </enums>
      <messages>
           <message id="0" name="HEARTBEAT">
@@ -2921,7 +2868,7 @@
             <field type="uint8_t" name="target_system">System ID</field>
             <field type="uint8_t" name="target_component">Component ID</field>
             <field type="uint8_t" name="block_size">size of log data block i.e. being sent</field>
-            <field type="uint32_t" name="block_cnt">log data block count</field>
+            <field type="uint32_t" name="block_cnt" enum="MAV_REMOTE_LOG_DATA_BLOCK_COMMANDS">log data block count</field>
             <field type="uint8_t[200]" name="data">log data block</field>
         </message>
 
@@ -2930,7 +2877,7 @@
             <field type="uint8_t" name="target_system">System ID</field>
             <field type="uint8_t" name="target_component">Component ID</field>
             <field type="uint32_t" name="block_cnt">log data block count</field>
-            <field type="uint8_t" name="block_status">0:log data failed, 1:log received</field>
+            <field type="uint8_t" name="block_status" enum="MAV_REMOTE_LOG_DATA_BLOCK_STATUSES">log data block status</field>
         </message>
 
         <message id="147" name="BATTERY_STATUS">
