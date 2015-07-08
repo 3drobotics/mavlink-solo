@@ -244,21 +244,21 @@ class mavfile(object):
                 msg._timestamp = self._timestamp
 
         src_system = msg.get_srcSystem()
-        if not (
-            # its the radio or planner
-            (src_system == ord('3') and msg.get_srcComponent() == ord('D')) or
-            msg.get_type() == 'BAD_DATA'):
-            if not src_system in self.last_seq:
+        src_component = msg.get_srcComponent()
+        src_tuple = (src_system, src_component)
+        radio_tuple = (ord('3'), ord('D'))
+        if not (src_tuple == radio_tuple or msg.get_type() == 'BAD_DATA'):
+            if not src_tuple in self.last_seq:
                 last_seq = -1
             else:
-                last_seq = self.last_seq[src_system]
+                last_seq = self.last_seq[src_tuple]
             seq = (last_seq+1) % 256
             seq2 = msg.get_seq()
             if seq != seq2 and last_seq != -1:
                 diff = (seq2 - seq) % 256
                 self.mav_loss += diff
                 #print("lost %u seq=%u seq2=%u last_seq=%u src_system=%u %s" % (diff, seq, seq2, last_seq, src_system, msg.get_type()))
-            self.last_seq[src_system] = seq2
+            self.last_seq[src_tuple] = seq2
             self.mav_count += 1
 
         self.timestamp = msg._timestamp
@@ -380,7 +380,7 @@ class mavfile(object):
             return
         self.param_fetch_start = time.time()
         self.param_fetch_in_progress = True
-        self.mav.param_request_list_send(self.target_system, self.target_component)
+        self.mav.param_request_list_send(self.target_system, 0)
 
     def param_fetch_one(self, name):
         '''initiate fetch of one parameter'''
@@ -401,7 +401,7 @@ class mavfile(object):
         if self.mavlink10():
             if parm_type == None:
                 parm_type = mavlink.MAVLINK_TYPE_FLOAT
-            self.mav.param_set_send(self.target_system, self.target_component,
+            self.mav.param_set_send(self.target_system, 0,
                                     parm_name, parm_value, parm_type)
         else:
             self.mav.param_set_send(self.target_system, self.target_component,

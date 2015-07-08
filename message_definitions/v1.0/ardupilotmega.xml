@@ -202,7 +202,7 @@
       <description>Tests to make sure each axis can move to its mechanical limits</description>
     </entry>
   </enum>
-  
+
   <enum name="GIMBAL_AXIS_CALIBRATION_REQUIRED">
     <entry name="GIMBAL_AXIS_CALIBRATION_REQUIRED_UNKNOWN" value="0">
       <description>Whether or not this axis requires calibration is unknown at this time</description>
@@ -214,7 +214,118 @@
       <description>This axis does not require calibration</description>
     </entry>
   </enum>
-  
+
+    <!-- GoPro System Enumerations -->
+    <enum name="GOPRO_HEARTBEAT_STATUS">
+      <entry name="GOPRO_HEARTBEAT_STATUS_DISCONNECTED" value="0">
+        <description>No GoPro connected</description>
+      </entry>
+      <entry name="GOPRO_HEARTBEAT_STATUS_INCOMPATIBLE" value="1">
+        <description>The detected GoPro is not HeroBus compatible</description>
+      </entry>
+      <entry name="GOPRO_HEARTBEAT_STATUS_CONNECTED" value="2">
+        <description>A HeroBus compatible GoPro is connected</description>
+      </entry>
+      <entry name="GOPRO_HEARTBEAT_STATUS_RECORDING" value="3">
+        <description>A HeroBus compatible GoPro is connected and recording</description>
+      </entry>
+    </enum>
+    <enum name="GOPRO_SET_RESPONSE_RESULT">
+      <entry name="GOPRO_SET_RESPONSE_RESULT_FAILURE" value="0">
+        <description>The write message with ID indicated failed</description>
+      </entry>
+      <entry name="GOPRO_SET_RESPONSE_RESULT_SUCCESS" value="1">
+        <description>The write message with ID indicated succeeded</description>
+      </entry>
+    </enum>
+    <enum name="GOPRO_COMMAND">
+      <entry name="GOPRO_COMMAND_POWER" value="0">
+        <description>(Get/Set)</description>
+      </entry>
+      <entry name="GOPRO_COMMAND_CAPTURE_MODE" value="1">
+        <description>(Get/Set)</description>
+      </entry>
+      <entry name="GOPRO_COMMAND_SHUTTER" value="2">
+        <description>(___/Set)</description>
+      </entry>
+      <entry name="GOPRO_COMMAND_BATTERY" value="3">
+        <description>(Get/___)</description>
+      </entry>
+      <entry name="GOPRO_COMMAND_MODEL" value="4">
+        <description>(Get/___)</description>
+      </entry>
+      <entry name="GOPRO_COMMAND_REQUEST_FAILED" value="254">
+        <description>(Get/___)</description>
+      </entry>
+    </enum>
+
+    <!-- Gimbal payload enumerations -->
+  <enum name="MAV_MODE_GIMBAL">
+    <entry name="MAV_MODE_GIMBAL_UNINITIALIZED" value="0">
+      <description>Gimbal is powered on but has not started initializing yet</description>
+    </entry>
+    <entry name="MAV_MODE_GIMBAL_CALIBRATING_PITCH" value="1">
+      <description>Gimbal is currently running calibration on the pitch axis</description>
+    </entry>
+    <entry name="MAV_MODE_GIMBAL_CALIBRATING_ROLL" value="2">
+      <description>Gimbal is currently running calibration on the roll axis</description>
+    </entry>
+    <entry name="MAV_MODE_GIMBAL_CALIBRATING_YAW" value="3">
+      <description>Gimbal is currently running calibration on the yaw axis</description>
+    </entry>
+    <entry name="MAV_MODE_GIMBAL_INITIALIZED" value="4">
+      <description>Gimbal has finished calibrating and initializing, but is relaxed pending reception of first rate command from copter</description>
+    </entry>
+    <entry name="MAV_MODE_GIMBAL_ACTIVE" value="5">
+      <description>Gimbal is actively stabilizing</description>
+    </entry>
+    <entry name="MAV_MODE_GIMBAL_RATE_CMD_TIMEOUT" value="6">
+      <description>Gimbal is relaxed because it missed more than 10 expected rate command messages in a row.  Gimbal will move back to active mode when it receives a new rate command</description>
+    </entry>
+  </enum>
+
+  <enum name="GIMBAL_AXIS">
+    <entry name="GIMBAL_AXIS_YAW" value="0">
+      <description>Gimbal yaw axis</description>
+    </entry>
+    <entry name="GIMBAL_AXIS_PITCH" value="1">
+      <description>Gimbal pitch axis</description>
+    </entry>
+    <entry name="GIMBAL_AXIS_ROLL" value="2">
+      <description>Gimbal roll axis</description>
+    </entry>
+  </enum>
+
+  <enum name="GIMBAL_AXIS_CALIBRATION_STATUS">
+    <entry name="GIMBAL_AXIS_CALIBRATION_STATUS_IN_PROGRESS" value="0">
+      <description>Axis calibration is in progress</description>
+    </entry>
+    <entry name="GIMBAL_AXIS_CALIBRATION_STATUS_SUCCEEDED" value="1">
+      <description>Axis calibration succeeded</description>
+    </entry>
+    <entry name="GIMBAL_AXIS_CALIBRATION_STATUS_FAILED" value="2">
+      <description>Axis calibration failed</description>
+    </entry>
+  </enum>
+
+  <enum name="FACTORY_TEST">
+    <entry name="FACTORY_TEST_AXIS_RANGE_LIMITS" value="0">
+      <description>Tests to make sure each axis can move to its mechanical limits</description>
+    </entry>
+  </enum>
+
+  <enum name="GIMBAL_AXIS_CALIBRATION_REQUIRED">
+    <entry name="GIMBAL_AXIS_CALIBRATION_REQUIRED_UNKNOWN" value="0">
+      <description>Whether or not this axis requires calibration is unknown at this time</description>
+    </entry>
+    <entry name="GIMBAL_AXIS_CALIBRATION_REQUIRED_TRUE" value="1">
+      <description>This axis requires calibration</description>
+    </entry>
+    <entry name="GIMBAL_AXIS_CALIBRATION_REQUIRED_FALSE" value="2">
+      <description>This axis does not require calibration</description>
+    </entry>
+  </enum>
+
     <!-- GoPro System Enumerations -->
     <enum name="GOPRO_HEARTBEAT_STATUS">
       <entry name="GOPRO_HEARTBEAT_STATUS_DISCONNECTED" value="0">
@@ -289,6 +400,12 @@
         <entry name="MAG_CAL_SUCCESS" value="4"></entry>
         <entry name="MAG_CAL_FAILED" value="5"></entry>
     </enum>
+
+        <enum name="PID_TUNING_AXIS">
+          <entry name="PID_TUNING_ROLL"  value="1"></entry>
+          <entry name="PID_TUNING_PITCH" value="2"></entry>
+          <entry name="PID_TUNING_YAW"   value="3"></entry>
+        </enum>
 
       </enums>
 
@@ -712,6 +829,18 @@
         <field name="terrain_alt_variance" type="float">Terrain Altitude variance</field>
     </message>
 
+    <!-- realtime PID tuning message -->
+    <message name="PID_TUNING" id="194">
+        <description>PID tuning information</description>
+        <field name="axis" type="uint8_t" enum="PID_TUNING_AXIS">axis</field>
+        <field name="desired" type="float">desired rate (degrees/s)</field>
+        <field name="achieved" type="float">achieved rate (degrees/s)</field>
+        <field name="FF" type="float">FF component</field>
+        <field name="P" type="float">P component</field>
+        <field name="I" type="float">I component</field>
+        <field name="D" type="float">D component</field>
+    </message>
+
     <message name="GIMBAL_REPORT" id="200">
         <description>3 axis gimbal mesuraments</description>
         <field type="uint8_t" name="target_system">System ID</field>
@@ -829,7 +958,7 @@
         <field name="test_section_progress" type="uint8_t">The progress of the current test section, 0x64=100%</field>
         <field name="test_status" type="uint8_t">The status of the currently executing test section.  The meaning of this is test and section-dependent</field>
     </message>
-    
+
     <message name="GIMBAL_REQUEST_AXIS_CALIBRATION_STATUS" id="211">
       <description>
         Requests the calibration status for all gimbal axes.  Should result in a GIMBAL_REPORT_AXIS_CALIBRATION_STATUS message being generated by the gimbal
@@ -837,14 +966,14 @@
       <field name="target_system" type="uint8_t">System ID</field>
         <field name="target_component" type="uint8_t">Component ID</field>
     </message>
-    
+
     <message name="GIMBAL_REPORT_AXIS_CALIBRATION_STATUS" id="212">
       <description>
         Reports the calibration status for each gimbal axis (whether the axis requires calibration or not)
       </description>
       <field name="yaw_requires_calibration" type="uint8_t" enum="GIMBAL_AXIS_CALIBRATION_REQUIRED">Whether or not the yaw axis requires calibration, see GIMBAL_AXIS_CALIBRATION_REQUIRED enumeration</field>
       <field name="pitch_requires_calibration" type="uint8_t" enum="GIMBAL_AXIS_CALIBRATION_REQUIRED">Whether or not the pitch axis requires calibration, see GIMBAL_AXIS_CALIBRATION_REQUIRED enumeration</field>
-      <field name="roll_requires_calibration" type="uint8_t" enum="GIMBAL_AXIS_CALIBRATION_REQUIRED">Whether or not the roll axis requires calibration, see GIMBAL_AXIS_CALIBRATION_REQUIRED enumeration</field> 
+      <field name="roll_requires_calibration" type="uint8_t" enum="GIMBAL_AXIS_CALIBRATION_REQUIRED">Whether or not the roll axis requires calibration, see GIMBAL_AXIS_CALIBRATION_REQUIRED enumeration</field>
     </message>
 
   <message name="GIMBAL_REQUEST_AXIS_CALIBRATION" id="213">
