@@ -34,6 +34,17 @@
               <param index="7">Empty</param>
             </entry>
 
+            <entry name="MAV_CMD_POWER_OFF_INITIATED" value="42000">
+                <description>A system wide power-off event has been initiated.</description>
+                <param index="1">Empty</param>
+                <param index="2">Empty</param>
+                <param index="3">Empty</param>
+                <param index="4">Empty</param>
+                <param index="5">Empty</param>
+                <param index="6">Empty</param>
+                <param index="7">Empty</param>
+            </entry>
+
             <entry name="MAV_CMD_DO_START_MAG_CAL" value="42424">
                 <description>Initiate a magnetometer calibration</description>
                 <param index="1">uint8_t bitmask of magnetometers (0 means all)</param>
@@ -44,7 +55,6 @@
                 <param index="6">Empty</param>
                 <param index="7">Empty</param>
             </entry>
-
             <entry name="MAV_CMD_DO_ACCEPT_MAG_CAL" value="42425">
                 <description>Initiate a magnetometer calibration</description>
                 <param index="1">uint8_t bitmask of magnetometers (0 means all)</param>
@@ -55,7 +65,6 @@
                 <param index="6">Empty</param>
                 <param index="7">Empty</param>
             </entry>
-
             <entry name="MAV_CMD_DO_CANCEL_MAG_CAL" value="42426">
                 <description>Cancel a running magnetometer calibration</description>
                 <param index="1">uint8_t bitmask of magnetometers (0 means all)</param>
@@ -77,7 +86,6 @@
                 <param index="6">Empty</param>
                 <param index="7">Empty</param>
             </entry>
-
             <entry value="42502" name="MAV_CMD_GIMBAL_AXIS_CALIBRATION_STATUS">
                 <description> Reports progress and success or failure of gimbal axis calibration procedure</description>
                 <param index="1">Gimbal axis we're reporting calibration progress for</param>
@@ -88,7 +96,6 @@
                 <param index="6">Empty</param>
                 <param index="7">Empty</param>
             </entry>
-
             <entry value="42503" name="MAV_CMD_GIMBAL_REQUEST_AXIS_CALIBRATION">
                 <description>  Starts commutation calibration on the gimbal </description>
                 <param index="1">Empty</param>
@@ -99,7 +106,6 @@
                 <param index="6">Empty</param>
                 <param index="7">Empty</param>
             </entry>
-
             <entry value="42505" name="MAV_CMD_GIMBAL_FULL_RESET">
                 <description>  Erases gimbal application and parameters </description>
                 <param index="1">Magic number</param>
