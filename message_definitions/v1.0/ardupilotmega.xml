@@ -299,12 +299,12 @@
         <description>A HeroBus compatible GoPro is connected and recording</description>
       </entry>
     </enum>
-    <enum name="GOPRO_SET_RESPONSE_RESULT">
-      <entry name="GOPRO_SET_RESPONSE_RESULT_FAILURE" value="0">
-        <description>The write message with ID indicated failed</description>
-      </entry>
-      <entry name="GOPRO_SET_RESPONSE_RESULT_SUCCESS" value="1">
+    <enum name="GOPRO_REQUEST_STATUS">
+      <entry name="GOPRO_REQUEST_SUCCESS" value="0">
         <description>The write message with ID indicated succeeded</description>
+      </entry>
+      <entry name="GOPRO_REQUEST_FAILED" value="1">
+        <description>The write message with ID indicated failed</description>
       </entry>
     </enum>
     <enum name="GOPRO_COMMAND">
@@ -927,6 +927,7 @@
     <message name="GOPRO_GET_RESPONSE" id="217">
       <description>Response from a GOPRO_COMMAND get request</description>
       <field name="cmd_id" type="uint8_t" enum="GOPRO_COMMAND">Command ID</field>
+      <field name="status" type="uint8_t" enum="GOPRO_REQUEST_STATUS">Status</field>
       <field name="value" type="uint8_t">Value</field>
     </message>
     <message name="GOPRO_SET_REQUEST" id="218">
@@ -939,7 +940,7 @@
     <message name="GOPRO_SET_RESPONSE" id="219">
       <description>Response from a GOPRO_COMMAND set request</description>
       <field name="cmd_id" type="uint8_t" enum="GOPRO_COMMAND">Command ID</field>
-      <field name="result" type="uint8_t" enum="GOPRO_SET_RESPONSE_RESULT">Result</field>
+      <field name="status" type="uint8_t" enum="GOPRO_REQUEST_STATUS">Status</field>
     </message>
 
     <!-- 219 to 224 RESERVED for more GOPRO-->
