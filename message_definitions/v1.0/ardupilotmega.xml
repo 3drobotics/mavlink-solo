@@ -335,29 +335,29 @@
     </enum>
 
     <enum name="GOPRO_CAPTURE_MODE">
-      <entry name="GOPRO_CAPTURE_MODE_UNKNOWN" value="0">
-        <description>Mode not yet known</description>
-      </entry>
-      <entry name="GOPRO_CAPTURE_MODE_VIDEO" value="1">
+      <entry name="GOPRO_CAPTURE_MODE_VIDEO" value="0">
         <description>Video mode</description>
       </entry>
-      <entry name="GOPRO_CAPTURE_MODE_PHOTO" value="2">
+      <entry name="GOPRO_CAPTURE_MODE_PHOTO" value="1">
         <description>Photo mode</description>
       </entry>
-      <entry name="GOPRO_CAPTURE_MODE_BURST" value="3">
+      <entry name="GOPRO_CAPTURE_MODE_BURST" value="2">
         <description>Burst mode, hero 3 only</description>
       </entry>
-      <entry name="GOPRO_CAPTURE_MODE_TIME_LAPSE" value="4">
+      <entry name="GOPRO_CAPTURE_MODE_TIME_LAPSE" value="3">
         <description>Time lapse mode, hero 3 only</description>
       </entry>
-      <entry name="GOPRO_CAPTURE_MODE_MULTI_SHOT" value="5">
+      <entry name="GOPRO_CAPTURE_MODE_MULTI_SHOT" value="4">
         <description>Multi shot mode, hero 4 only</description>
       </entry>
-      <entry name="GOPRO_CAPTURE_MODE_PLAYBACK" value="6">
+      <entry name="GOPRO_CAPTURE_MODE_PLAYBACK" value="5">
         <description>Playback mode, hero 4 only, silver only except when LCD or HDMI is connected to black</description>
       </entry>
-      <entry name="GOPRO_CAPTURE_MODE_SETUP" value="7">
+      <entry name="GOPRO_CAPTURE_MODE_SETUP" value="6">
         <description>Playback mode, hero 4 only</description>
+      </entry>
+      <entry name="GOPRO_CAPTURE_MODE_UNKNOWN" value="255">
+        <description>Mode not yet known</description>
       </entry>
     </enum>
 
