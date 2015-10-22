@@ -955,14 +955,14 @@
       <description>Response from a GOPRO_COMMAND get request</description>
       <field name="cmd_id" type="uint8_t" enum="GOPRO_COMMAND">Command ID</field>
       <field name="status" type="uint8_t" enum="GOPRO_REQUEST_STATUS">Status</field>
-      <field name="value" type="uint8_t">Value</field>
+      <field name="value" type="uint8_t[4]">Value</field>
     </message>
     <message name="GOPRO_SET_REQUEST" id="218">
       <description>Request to set a GOPRO_COMMAND with a desired</description>
       <field name="target_system" type="uint8_t">System ID</field>
       <field name="target_component" type="uint8_t">Component ID</field>
       <field name="cmd_id" type="uint8_t" enum="GOPRO_COMMAND">Command ID</field>
-      <field name="value" type="uint8_t">Value</field>
+      <field name="value" type="uint8_t[4]">Value</field>
     </message>
     <message name="GOPRO_SET_RESPONSE" id="219">
       <description>Response from a GOPRO_COMMAND set request</description>
