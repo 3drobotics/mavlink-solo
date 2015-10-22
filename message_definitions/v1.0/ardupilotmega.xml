@@ -332,9 +332,6 @@
       <entry name="GOPRO_COMMAND_FIELD_OF_VIEW" value="7">
         <description>(___/Set)</description>
       </entry>
-      <entry name="GOPRO_COMMAND_REQUEST_FAILED" value="254">
-        <description>(Get/___)</description>
-      </entry>
     </enum>
 
     <enum name="GOPRO_CAPTURE_MODE">
