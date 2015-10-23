@@ -404,7 +404,10 @@
       <entry name="GOPRO_RESOLUTION_1080p_SUPERVIEW" value="11">
         <description>1920 x 1080 (1080p-SuperView)</description>
       </entry>
-      <entry name="GOPRO_RESOLUTION_4k_SUPERVIEW" value="12">
+      <entry name="GOPRO_RESOLUTION_2_7k_SUPERVIEW" value="12">
+        <description>2704 x 1520 (2.7k-SuperView)</description>
+      </entry>
+      <entry name="GOPRO_RESOLUTION_4k_SUPERVIEW" value="13">
         <description>3840 x 2160 (4k-SuperView)</description>
       </entry>
     </enum>
