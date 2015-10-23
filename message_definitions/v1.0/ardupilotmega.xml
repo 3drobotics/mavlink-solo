@@ -300,6 +300,7 @@
       </entry>
     </enum>
     <enum name="GOPRO_HEARTBEAT_FLAGS">
+      <!-- each entry is a mask to test a bit in GOPRO_HEARTBEAT_STATUS.flags -->
       <entry name="GOPRO_FLAG_RECORDING" value="1">
         <description>GoPro is currently recording</description>
       </entry>
