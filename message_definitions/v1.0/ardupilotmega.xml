@@ -294,6 +294,9 @@
       <entry name="GOPRO_HEARTBEAT_STATUS_CONNECTED" value="2">
         <description>A HeroBus compatible GoPro is connected</description>
       </entry>
+      <entry name="GOPRO_HEARTBEAT_STATUS_ERROR" value="3">
+        <description>An unrecoverable error was encountered with the connected GoPro, it may require a power cycle</description>
+      </entry>
     </enum>
     <enum name="GOPRO_HEARTBEAT_FLAGS">
       <entry name="GOPRO_FLAG_RECORDING" value="1">
