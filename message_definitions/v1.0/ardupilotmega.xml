@@ -295,8 +295,10 @@
       <entry name="GOPRO_HEARTBEAT_STATUS_CONNECTED" value="2">
         <description>A HeroBus compatible GoPro is connected</description>
       </entry>
-      <entry name="GOPRO_HEARTBEAT_STATUS_RECORDING" value="3">
-        <description>A HeroBus compatible GoPro is connected and recording</description>
+    </enum>
+    <enum name="GOPRO_HEARTBEAT_FLAGS">
+      <entry name="GOPRO_FLAG_RECORDING" value="1">
+        <description>GoPro is currently recording</description>
       </entry>
     </enum>
     <enum name="GOPRO_REQUEST_STATUS">
@@ -953,6 +955,8 @@
     <message name="GOPRO_HEARTBEAT" id="215">
       <description>Heartbeat from a HeroBus attached GoPro</description>
       <field name="status" type="uint8_t" enum="GOPRO_HEARTBEAT_STATUS">Status</field>
+      <field name="capture_mode" type="uint8_t" enum="GOPRO_CAPTURE_MODE">Current capture mode</field>
+      <field name="flags" type="uint8_t">additional status bits</field> <!-- see GOPRO_HEARTBEAT_FLAGS -->
     </message>
     <message name="GOPRO_GET_REQUEST" id="216">
       <description>Request a GOPRO_COMMAND response from the GoPro</description>
