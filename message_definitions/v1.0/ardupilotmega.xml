@@ -658,6 +658,24 @@
       </entry>
     </enum>
 
+    <enum name="GOPRO_MODEL">
+      <entry name="GOPRO_MODEL_UNKNOWN" value="0">
+        <description>Unknown gopro model</description>
+      </entry>
+      <entry name="GOPRO_MODEL_HERO_3_PLUS_SILVER" value="1">
+        <description>Hero 3+ Silver (HeroBus not supported by GoPro)</description>
+      </entry>
+      <entry name="GOPRO_MODEL_HERO_3_PLUS_BLACK" value="2">
+        <description>Hero 3+ Black</description>
+      </entry>
+      <entry name="GOPRO_MODEL_HERO_4_SILVER" value="3">
+        <description>Hero 4 Silver</description>
+      </entry>
+      <entry name="GOPRO_MODEL_HERO_4_BLACK" value="4">
+        <description>Hero 4 Black</description>
+      </entry>
+    </enum>
+
     <!-- led control pattern enums (enumeration of specific patterns) -->
     <enum name="LED_CONTROL_PATTERN">
         <entry name="LED_CONTROL_PATTERN_OFF" value="0"> <description>LED patterns off (return control to regular vehicle control)</description></entry>
