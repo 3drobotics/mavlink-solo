@@ -329,17 +329,8 @@
       <entry name="GOPRO_COMMAND_MODEL" value="4">
         <description>(Get/___)</description>
       </entry>
-      <entry name="GOPRO_COMMAND_RESOLUTION" value="5">
-        <description>(___/Set)</description>
-      </entry>
-      <entry name="GOPRO_COMMAND_FRAME_RATE" value="6">
-        <description>(___/Set)</description>
-      </entry>
-      <entry name="GOPRO_COMMAND_FIELD_OF_VIEW" value="7">
-        <description>(___/Set)</description>
-      </entry>
-      <entry name="GOPRO_COMMAND_VIDEO_MODE" value="8">
-        <description>(___/Set)</description>
+      <entry name="GOPRO_COMMAND_VIDEO_MODE" value="5">
+        <description>(Get/Set)</description>
         <!-- Packet structure for the four values is as follows
           byte 0: GOPRO_RESOLUTION
           byte 1: GOPRO_FRAME_RATE
@@ -347,11 +338,11 @@
           byte 3: GOPRO_VIDEO_MODE_FLAGS
         -->
       </entry>
-      <entry name="GOPRO_COMMAND_PHOTO_RESOLUTION" value="9">
-        <description>(___/Set)</description>
+      <entry name="GOPRO_COMMAND_PHOTO_RESOLUTION" value="6">
+        <description>(Get/Set)</description>
       </entry>
-      <entry name="GOPRO_COMMAND_PROTUNE_SETTINGS" value="10">
-        <desciption>(___/Set)</desciption>
+      <entry name="GOPRO_COMMAND_PROTUNE_SETTINGS" value="7">
+        <desciption>(Get/Set)</desciption>
         <!-- Packet structure for the four values is as follows
           byte 0[0...3]: GOPRO_PROTUNE_WHITE_BALANCE
           byte 0[4...7]: GOPRO_PROTUNE_COLOUR
@@ -361,11 +352,14 @@
           byte 3       : (unused)
         -->
       </entry>
-      <entry name="GOPRO_COMMAND_TIME" value="11">
-        <description>(___/Set)</description>
+      <entry name="GOPRO_COMMAND_TIME" value="8">
+        <description>(Get/Set)</description>
+        <!-- Packet structure for the four values is as follows
+          byte 0...3: uint32_t unix timestamp (byte 0 is MSB)
+        -->
       </entry>
-      <entry name="GOPRO_COMMAND_CHARGING" value="12">
-        <description>(___/Set)</description>
+      <entry name="GOPRO_COMMAND_CHARGING" value="9">
+        <description>(Get/Set)</description>
       </entry>
     </enum>
 
@@ -499,10 +493,13 @@
     </enum>
 
     <enum name="GOPRO_VIDEO_MODE_FLAGS">
-      <entry name="GOPRO_VIDEO_MODE_LOW_LIGHT" value="1">
+      <entry name="GOPRO_VIDEO_MODE_TV_MODE" value="1">
+        <description>0=NTSC, 1=PAL</description>
+      </entry>
+      <entry name="GOPRO_VIDEO_MODE_LOW_LIGHT" value="2">
         <description>Low Light enable bit</description>
       </entry>
-      <entry name="GOPRO_VIDEO_MODE_PROTUNE" value="2">
+      <entry name="GOPRO_VIDEO_MODE_PROTUNE" value="4">
         <description>Protune enable bit</description>
       </entry>
     </enum>
@@ -548,7 +545,7 @@
         <description>Auto</description>
       </entry>
       <entry name="GOPRO_PROTUNE_COLOUR_NEUTRAL" value="1">
-        <description>3000K</description>
+        <description>Neutral</description>
       </entry>
     </enum>
 
