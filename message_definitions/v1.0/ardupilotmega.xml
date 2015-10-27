@@ -338,6 +338,35 @@
       <entry name="GOPRO_COMMAND_FIELD_OF_VIEW" value="7">
         <description>(___/Set)</description>
       </entry>
+      <entry name="GOPRO_COMMAND_VIDEO_MODE" value="8">
+        <description>(___/Set)</description>
+        <!-- Packet structure for the four values is as follows
+          byte 0: GOPRO_RESOLUTION
+          byte 1: GOPRO_FRAME_RATE
+          byte 2: GOPRO_FIELD_OF_VIEW
+          byte 3: GOPRO_VIDEO_MODE_FLAGS
+        -->
+      </entry>
+      <entry name="GOPRO_COMMAND_PHOTO_RESOLUTION" value="9">
+        <description>(___/Set)</description>
+      </entry>
+      <entry name="GOPRO_COMMAND_PROTUNE_SETTINGS" value="10">
+        <desciption>(___/Set)</desciption>
+        <!-- Packet structure for the four values is as follows
+          byte 0[0...3]: GOPRO_PROTUNE_WHITE_BALANCE
+          byte 0[4...7]: GOPRO_PROTUNE_COLOUR
+          byte 1[0...3]: GOPRO_PROTUNE_GAIN
+          byte 1[4...7]: GOPRO_PROTUNE_SHARPNESS
+          byte 2       : GOPRO_PROTUNE_EXPOSURE
+          byte 3       : (unused)
+        -->
+      </entry>
+      <entry name="GOPRO_COMMAND_TIME" value="11">
+        <description>(___/Set)</description>
+      </entry>
+      <entry name="GOPRO_COMMAND_CHARGING" value="12">
+        <description>(___/Set)</description>
+      </entry>
     </enum>
 
     <enum name="GOPRO_CAPTURE_MODE">
@@ -466,6 +495,165 @@
       </entry>
       <entry name="GOPRO_FIELD_OF_VIEW_NARROW" value="2">
         <description>0x02: Narrow</description>
+      </entry>
+    </enum>
+
+    <enum name="GOPRO_VIDEO_MODE_FLAGS">
+      <entry name="GOPRO_VIDEO_MODE_LOW_LIGHT" value="1">
+        <description>Low Light enable bit</description>
+      </entry>
+      <entry name="GOPRO_VIDEO_MODE_PROTUNE" value="2">
+        <description>Protune enable bit</description>
+      </entry>
+    </enum>
+
+    <enum name="GOPRO_PHOTO_RESOLUTION">
+      <entry name="GOPRO_PHOTO_RESOLUTION_5MP_MEDIUM" value="0">
+        <description>5MP Medium</description>
+      </entry>
+      <entry name="GOPRO_PHOTO_RESOLUTION_7MP_MEDIUM" value="1">
+        <description>7MP Medium</description>
+      </entry>
+      <entry name="GOPRO_PHOTO_RESOLUTION_7MP_WIDE" value="2">
+        <description>7MP Wide</description>
+      </entry>
+      <entry name="GOPRO_PHOTO_RESOLUTION_10MP_WIDE" value="3">
+        <description>10MP Wide</description>
+      </entry>
+      <entry name="GOPRO_PHOTO_RESOLUTION_12MP_WIDE" value="4">
+        <description>12MP Wide</description>
+      </entry>
+    </enum>
+
+    <enum name="GOPRO_PROTUNE_WHITE_BALANCE">
+      <entry name="GOPRO_PROTUNE_WHITE_BALANCE_AUTO" value="0">
+        <description>Auto</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_WHITE_BALANCE_3000K" value="1">
+        <description>3000K</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_WHITE_BALANCE_5500K" value="2">
+        <description>5500K</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_WHITE_BALANCE_6500K" value="3">
+        <description>6500K</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_WHITE_BALANCE_RAW" value="4">
+        <description>Camera Raw</description>
+      </entry>
+    </enum>
+
+    <enum name="GOPRO_PROTUNE_COLOUR">
+      <entry name="GOPRO_PROTUNE_COLOUR_STANDARD" value="0">
+        <description>Auto</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_COLOUR_NEUTRAL" value="1">
+        <description>3000K</description>
+      </entry>
+    </enum>
+
+    <enum name="GOPRO_PROTUNE_GAIN">
+      <entry name="GOPRO_PROTUNE_GAIN_400" value="0">
+        <description>ISO 400</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_GAIN_800" value="1">
+        <description>ISO 800 (Only Hero 4)</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_GAIN_1600" value="2">
+        <description>ISO 1600</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_GAIN_3200" value="3">
+        <description>ISO 3200 (Only Hero 4)</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_GAIN_6400" value="4">
+        <description>ISO 6400</description>
+      </entry>
+    </enum>
+
+    <enum name="GOPRO_PROTUNE_SHARPNESS">
+      <entry name="GOPRO_PROTUNE_SHARPNESS_LOW" value="0">
+        <description>Low Sharpness</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_SHARPNESS_MEDIUM" value="1">
+        <description>Medium Sharpness</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_SHARPNESS_HIGH" value="2">
+        <description>High Sharpness</description>
+      </entry>
+    </enum>
+
+    <enum name="GOPRO_PROTUNE_EXPOSURE">
+      <entry name="GOPRO_PROTUNE_EXPOSURE_NEG_5_0" value="0">
+        <description>-5.0 EV (Hero 3+ Only)</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_NEG_4_5" value="1">
+        <description>-4.5 EV (Hero 3+ Only)</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_NEG_4_0" value="2">
+        <description>-4.0 EV (Hero 3+ Only)</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_NEG_3_5" value="3">
+        <description>-3.5 EV (Hero 3+ Only)</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_NEG_3_0" value="4">
+        <description>-3.0 EV (Hero 3+ Only)</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_NEG_2_5" value="5">
+        <description>-2.5 EV (Hero 3+ Only)</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_NEG_2_0" value="6">
+        <description>-2.0 EV</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_NEG_1_5" value="7">
+        <description>-1.5 EV</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_NEG_1_0" value="8">
+        <description>-1.0 EV</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_NEG_0_5" value="9">
+        <description>-0.5 EV</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_ZERO" value="10">
+        <description>0.0 EV</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_POS_0_5" value="11">
+        <description>+0.5 EV</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_POS_1_0" value="12">
+        <description>+1.0 EV</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_POS_1_5" value="13">
+        <description>+1.5 EV</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_POS_2_0" value="14">
+        <description>+2.0 EV</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_POS_2_5" value="15">
+        <description>+2.5 EV (Hero 3+ Only)</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_POS_3_0" value="16">
+        <description>+3.0 EV (Hero 3+ Only)</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_POS_3_5" value="17">
+        <description>+3.5 EV (Hero 3+ Only)</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_POS_4_0" value="18">
+        <description>+4.0 EV (Hero 3+ Only)</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_POS_4_5" value="19">
+        <description>+4.5 EV (Hero 3+ Only)</description>
+      </entry>
+      <entry name="GOPRO_PROTUNE_EXPOSURE_POS_5_0" value="20">
+        <description>+5.0 EV (Hero 3+ Only)</description>
+      </entry>
+    </enum>
+
+    <enum name="GOPRO_CHARGING">
+      <entry name="GOPRO_CHARGING_DISABLED" value="0">
+        <description>Charging disabled</description>
+      </entry>
+      <entry name="GOPRO_CHARGING_ENABLED" value="1">
+        <description>Charging enabled</description>
       </entry>
     </enum>
 
