@@ -341,19 +341,19 @@
         <description>(Get/Set)</description>
       </entry>
       <entry name="GOPRO_COMMAND_PROTUNE_WHITE_BALANCE" value="7">
-        <desciption>(Get/Set) Hero 3+ Only</desciption>
+        <description>(Get/Set) Hero 3+ Only</description>
       </entry>
       <entry name="GOPRO_COMMAND_PROTUNE_COLOUR" value="8">
-        <desciption>(Get/Set) Hero 3+ Only</desciption>
+        <description>(Get/Set) Hero 3+ Only</description>
       </entry>
       <entry name="GOPRO_COMMAND_PROTUNE_GAIN" value="9">
-        <desciption>(Get/Set) Hero 3+ Only</desciption>
+        <description>(Get/Set) Hero 3+ Only</description>
       </entry>
       <entry name="GOPRO_COMMAND_PROTUNE_SHARPNESS" value="10">
-        <desciption>(Get/Set) Hero 3+ Only</desciption>
+        <description>(Get/Set) Hero 3+ Only</description>
       </entry>
       <entry name="GOPRO_COMMAND_PROTUNE_EXPOSURE" value="11">
-        <desciption>(Get/Set) Hero 3+ Only</desciption>
+        <description>(Get/Set) Hero 3+ Only</description>
       </entry>
       <entry name="GOPRO_COMMAND_TIME" value="12">
         <description>(Get/Set)</description>
