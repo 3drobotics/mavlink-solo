@@ -298,12 +298,14 @@
         <description>An unrecoverable error was encountered with the connected GoPro, it may require a power cycle</description>
       </entry>
     </enum>
+
     <enum name="GOPRO_HEARTBEAT_FLAGS">
       <!-- each entry is a mask to test a bit in GOPRO_HEARTBEAT_STATUS.flags -->
       <entry name="GOPRO_FLAG_RECORDING" value="1">
         <description>GoPro is currently recording</description>
       </entry>
     </enum>
+
     <enum name="GOPRO_REQUEST_STATUS">
       <entry name="GOPRO_REQUEST_SUCCESS" value="0">
         <description>The write message with ID indicated succeeded</description>
@@ -312,6 +314,7 @@
         <description>The write message with ID indicated failed</description>
       </entry>
     </enum>
+
     <enum name="GOPRO_COMMAND">
       <entry name="GOPRO_COMMAND_POWER" value="0">
         <description>(Get/Set)</description>
@@ -328,13 +331,13 @@
       <entry name="GOPRO_COMMAND_MODEL" value="4">
         <description>(Get/___)</description>
       </entry>
-      <entry name="GOPRO_COMMAND_VIDEO_MODE" value="5">
+      <entry name="GOPRO_COMMAND_VIDEO_SETTINGS" value="5">
         <description>(Get/Set)</description>
         <!-- Packet structure for the four values is as follows
           byte 0: GOPRO_RESOLUTION
           byte 1: GOPRO_FRAME_RATE
           byte 2: GOPRO_FIELD_OF_VIEW
-          byte 3: (unused)
+          byte 3: GOPRO_VIDEO_SETTINGS_FLAGS
         -->
       </entry>
       <entry name="GOPRO_COMMAND_LOW_LIGHT" value="6">
@@ -504,15 +507,9 @@
       </entry>
     </enum>
 
-    <enum name="GOPRO_VIDEO_MODE_FLAGS">
-      <entry name="GOPRO_VIDEO_MODE_TV_MODE" value="1">
+    <enum name="GOPRO_VIDEO_SETTINGS_FLAGS">
+      <entry name="GOPRO_VIDEO_SETTINGS_TV_MODE" value="1">
         <description>0=NTSC, 1=PAL</description>
-      </entry>
-      <entry name="GOPRO_VIDEO_MODE_LOW_LIGHT" value="2">
-        <description>Low Light enable bit</description>
-      </entry>
-      <entry name="GOPRO_VIDEO_MODE_PROTUNE" value="4">
-        <description>Protune enable bit</description>
       </entry>
     </enum>
 
