@@ -341,28 +341,31 @@
       <entry name="GOPRO_COMMAND_PHOTO_RESOLUTION" value="6">
         <description>(Get/Set)</description>
       </entry>
-      <entry name="GOPRO_COMMAND_PROTUNE_WHITE_BALANCE" value="7">
+      <entry name="GOPRO_COMMAND_PHOTO_BURST_RATE" value="7">
+        <description>(Get/Set)</description>
+      </entry>
+      <entry name="GOPRO_COMMAND_PROTUNE_WHITE_BALANCE" value="8">
         <description>(Get/Set) Hero 3+ Only</description>
       </entry>
-      <entry name="GOPRO_COMMAND_PROTUNE_COLOUR" value="8">
+      <entry name="GOPRO_COMMAND_PROTUNE_COLOUR" value="9">
         <description>(Get/Set) Hero 3+ Only</description>
       </entry>
-      <entry name="GOPRO_COMMAND_PROTUNE_GAIN" value="9">
+      <entry name="GOPRO_COMMAND_PROTUNE_GAIN" value="10">
         <description>(Get/Set) Hero 3+ Only</description>
       </entry>
-      <entry name="GOPRO_COMMAND_PROTUNE_SHARPNESS" value="10">
+      <entry name="GOPRO_COMMAND_PROTUNE_SHARPNESS" value="11">
         <description>(Get/Set) Hero 3+ Only</description>
       </entry>
-      <entry name="GOPRO_COMMAND_PROTUNE_EXPOSURE" value="11">
+      <entry name="GOPRO_COMMAND_PROTUNE_EXPOSURE" value="12">
         <description>(Get/Set) Hero 3+ Only</description>
       </entry>
-      <entry name="GOPRO_COMMAND_TIME" value="12">
+      <entry name="GOPRO_COMMAND_TIME" value="13">
         <description>(Get/Set)</description>
         <!-- Packet structure for the four values is as follows
           byte 0...3: uint32_t unix timestamp (byte 0 is MSB)
         -->
       </entry>
-      <entry name="GOPRO_COMMAND_CHARGING" value="13">
+      <entry name="GOPRO_COMMAND_CHARGING" value="14">
         <description>(Get/Set)</description>
       </entry>
     </enum>
@@ -673,6 +676,36 @@
       </entry>
       <entry name="GOPRO_MODEL_HERO_4_BLACK" value="4">
         <description>Hero 4 Black</description>
+      </entry>
+    </enum>
+
+    <enum name="GOPRO_BURST_RATE">
+      <entry name="GOPRO_BURST_RATE_3_IN_1_SECOND" value="0">
+        <description>3 Shots / 1 Second</description>
+      </entry>
+      <entry name="GOPRO_BURST_RATE_5_IN_1_SECOND" value="1">
+        <description>5 Shots / 1 Second</description>
+      </entry>
+      <entry name="GOPRO_BURST_RATE_10_IN_1_SECOND" value="2">
+        <description>10 Shots / 1 Second</description>
+      </entry>
+      <entry name="GOPRO_BURST_RATE_10_IN_2_SECOND" value="3">
+        <description>10 Shots / 2 Second</description>
+      </entry>
+      <entry name="GOPRO_BURST_RATE_10_IN_3_SECOND" value="4">
+        <description>10 Shots / 3 Second (Hero 4 Only)</description>
+      </entry>
+      <entry name="GOPRO_BURST_RATE_30_IN_1_SECOND" value="5">
+        <description>30 Shots / 1 Second</description>
+      </entry>
+      <entry name="GOPRO_BURST_RATE_30_IN_2_SECOND" value="6">
+        <description>30 Shots / 2 Second</description>
+      </entry>
+      <entry name="GOPRO_BURST_RATE_30_IN_3_SECOND" value="7">
+        <description>30 Shots / 3 Second</description>
+      </entry>
+      <entry name="GOPRO_BURST_RATE_30_IN_6_SECOND" value="8">
+        <description>30 Shots / 6 Second</description>
       </entry>
     </enum>
 
