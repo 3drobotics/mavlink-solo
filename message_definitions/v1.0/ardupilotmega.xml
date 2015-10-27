@@ -341,24 +341,28 @@
       <entry name="GOPRO_COMMAND_PHOTO_RESOLUTION" value="6">
         <description>(Get/Set)</description>
       </entry>
-      <entry name="GOPRO_COMMAND_PROTUNE_SETTINGS" value="7">
-        <desciption>(Get/Set)</desciption>
-        <!-- Packet structure for the four values is as follows
-          byte 0[0...3]: GOPRO_PROTUNE_WHITE_BALANCE
-          byte 0[4...7]: GOPRO_PROTUNE_COLOUR
-          byte 1[0...3]: GOPRO_PROTUNE_GAIN
-          byte 1[4...7]: GOPRO_PROTUNE_SHARPNESS
-          byte 2       : GOPRO_PROTUNE_EXPOSURE
-          byte 3       : (unused)
-        -->
+      <entry name="GOPRO_COMMAND_PROTUNE_WHITE_BALANCE" value="7">
+        <desciption>(Get/Set) Hero 3+ Only</desciption>
       </entry>
-      <entry name="GOPRO_COMMAND_TIME" value="8">
+      <entry name="GOPRO_COMMAND_PROTUNE_COLOUR" value="8">
+        <desciption>(Get/Set) Hero 3+ Only</desciption>
+      </entry>
+      <entry name="GOPRO_COMMAND_PROTUNE_GAIN" value="9">
+        <desciption>(Get/Set) Hero 3+ Only</desciption>
+      </entry>
+      <entry name="GOPRO_COMMAND_PROTUNE_SHARPNESS" value="10">
+        <desciption>(Get/Set) Hero 3+ Only</desciption>
+      </entry>
+      <entry name="GOPRO_COMMAND_PROTUNE_EXPOSURE" value="11">
+        <desciption>(Get/Set) Hero 3+ Only</desciption>
+      </entry>
+      <entry name="GOPRO_COMMAND_TIME" value="12">
         <description>(Get/Set)</description>
         <!-- Packet structure for the four values is as follows
           byte 0...3: uint32_t unix timestamp (byte 0 is MSB)
         -->
       </entry>
-      <entry name="GOPRO_COMMAND_CHARGING" value="9">
+      <entry name="GOPRO_COMMAND_CHARGING" value="13">
         <description>(Get/Set)</description>
       </entry>
     </enum>
@@ -371,10 +375,10 @@
         <description>Photo mode</description>
       </entry>
       <entry name="GOPRO_CAPTURE_MODE_BURST" value="2">
-        <description>Burst mode, hero 3 only</description>
+        <description>Burst mode, hero 3+ only</description>
       </entry>
       <entry name="GOPRO_CAPTURE_MODE_TIME_LAPSE" value="3">
-        <description>Time lapse mode, hero 3 only</description>
+        <description>Time lapse mode, hero 3+ only</description>
       </entry>
       <entry name="GOPRO_CAPTURE_MODE_MULTI_SHOT" value="4">
         <description>Multi shot mode, hero 4 only</description>
