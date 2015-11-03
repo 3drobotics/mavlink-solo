@@ -45,6 +45,9 @@
                 <param index="7">Empty</param>
             </entry>
 
+            <!-- MAV_CMD_SOLO_BTN_* are here to provide vendor-specific support
+            for 3DR Solo until a better solution is found to atomically make
+            multiple commands with control flow -->
             <entry name="MAV_CMD_SOLO_BTN_FLY_CLICK" value="42001">
                 <description>FLY button has been clicked.</description>
                 <param index="1">Empty</param>
