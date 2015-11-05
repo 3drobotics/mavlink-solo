@@ -789,14 +789,15 @@
         <description>Special ACK block numbers control activation of dataflash log streaming</description>
 	<!-- C uses signed integers for enumerations; these constants
 	     start at MAX_INT32_T and go down -->
-	<!-- 2^31-2 == 2147483646 -->
-        <entry value="2147483646" name="MAV_REMOTE_LOG_DATA_BLOCK_STOP">
+	<!-- 2^31-3 == 2147483645 -->
+        <entry value="2147483645" name="MAV_REMOTE_LOG_DATA_BLOCK_STOP">
           <description>UAV to stop sending DataFlash blocks</description>
         </entry>
-	<!-- 2^31-1 == 2147483647 -->
-        <entry value="2147483647" name="MAV_REMOTE_LOG_DATA_BLOCK_START">
+	<!-- 2^31-2 == 2147483646 -->
+        <entry value="2147483646" name="MAV_REMOTE_LOG_DATA_BLOCK_START">
           <description>UAV to start sending DataFlash blocks</description>
         </entry>
+	<!-- MAV_REMOTE_LOG_DATA_BLOCK_COMMANDS_ENUM_END will be 2^31-1 == 2147483647 -->
       </enum>
       <enum name="MAV_REMOTE_LOG_DATA_BLOCK_STATUSES">
         <description>Possible remote log data block statuses</description>
