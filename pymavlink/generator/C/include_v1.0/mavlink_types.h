@@ -97,7 +97,6 @@ typedef union {
         };
     };
     uint8_t data[8];
-    };
 }) mavlink_param_union_double_t;
 
 /**
