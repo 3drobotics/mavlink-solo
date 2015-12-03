@@ -411,7 +411,7 @@ def generate_message_definitions(basename, xml):
                     f.return_method_implementation = \
 """char string[%(array_length)d];
   mavlink_msg_%(message_name_lower)s_get_%(name)s(&(self->_message), (char *)&string);
-  return [[NSString alloc] initWithBytes:string length:%(array_length)d encoding:NSASCIIStringEncoding];""" % {'array_length': f.array_length, 'message_name_lower': m.name_lower, 'name': f.name}
+  return [[NSString alloc] initWithBytes:string length:strlen(string) encoding:NSASCIIStringEncoding];""" % {'array_length': f.array_length, 'message_name_lower': m.name_lower, 'name': f.name}
 
             if not f.return_method_implementation:
                 f.return_method_implementation = \
