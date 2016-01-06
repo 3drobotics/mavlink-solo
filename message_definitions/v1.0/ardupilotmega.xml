@@ -27,6 +27,28 @@
                 <param index="7">Empty</param>
             </entry>
 
+            <entry name="MAV_CMD_DO_AUTOTUNE_ENABLE" value="212">
+                <description>Enable/disable autotune</description>
+                <param index="1">enable (1: enable, 0:disable)</param>
+                <param index="2">Empty</param>
+                <param index="3">Empty</param>
+                <param index="4">Empty</param>
+                <param index="5">Empty</param>
+                <param index="6">Empty</param>
+                <param index="7">Empty</param>
+            </entry>
+
+            <entry name="MAV_CMD_NAV_ALTITUDE_WAIT" value="83">
+                <description>Mission command to wait for an altitude or downwards vertical speed. This is meant for high altitude balloon launches, allowing the aircraft to be idle until either an altitude is reached or a negative vertical speed is reached (indicating early balloon burst). The wiggle time is how often to wiggle the control surfaces to prevent them seizing up.</description>
+                <param index="1">altitude (m)</param>
+                <param index="2">descent speed (m/s)</param>
+                <param index="3">Wiggle Time (s)</param>
+                <param index="4">Empty</param>
+                <param index="5">Empty</param>
+                <param index="6">Empty</param>
+                <param index="7">Empty</param>
+            </entry>
+
             <entry name="MAV_CMD_POWER_OFF_INITIATED" value="42000">
                 <description>A system wide power-off event has been initiated.</description>
                 <param index="1">Empty</param>
@@ -78,7 +100,7 @@
                 <param index="2">Automatically retry on failure (0=no retry, 1=retry).</param>
                 <param index="3">Save without user input (0=require input, 1=autosave).</param>
                 <param index="4">Delay (seconds)</param>
-                <param index="5">Empty</param>
+                <param index="5">Autoreboot (0=user reboot, 1=autoreboot)</param>
                 <param index="6">Empty</param>
                 <param index="7">Empty</param>
             </entry>
@@ -301,19 +323,23 @@
 
         <!-- camera feedback flags, a little bit of future-proofing -->
         <enum name="CAMERA_FEEDBACK_FLAGS">
-            <entry name="VIDEO" value="1">
+            <entry name="CAMERA_FEEDBACK_PHOTO" value="0">
+                <description>Shooting photos, not video</description>
+            </entry>
+
+            <entry name="CAMERA_FEEDBACK_VIDEO" value="1">
                 <description>Shooting video, not stills</description>
             </entry>
 
-            <entry name="BADEXPOSURE" value="2">
+            <entry name="CAMERA_FEEDBACK_BADEXPOSURE" value="2">
                 <description>Unable to achieve requested exposure (e.g. shutter speed too low)</description>
             </entry>
 
-            <entry name="CLOSEDLOOP" value="3">
+            <entry name="CAMERA_FEEDBACK_CLOSEDLOOP" value="3">
                 <description>Closed loop feedback from camera, we know for sure it has successfully taken a picture</description>
             </entry>
 
-            <entry name="OPENLOOP" value="4">
+            <entry name="CAMERA_FEEDBACK_OPENLOOP" value="4">
                 <description>Open loop camera, an image trigger has been requested but we can't know for sure it has successfully taken a picture</description>
             </entry>
         </enum>
@@ -974,6 +1000,14 @@
             </entry>
         </enum>
 
+        <enum name="PID_TUNING_AXIS">
+            <entry name="PID_TUNING_ROLL" value="1"/>
+            <entry name="PID_TUNING_PITCH" value="2"/>
+            <entry name="PID_TUNING_YAW" value="3"/>
+            <entry name="PID_TUNING_ACCZ" value="4"/>
+            <entry name="PID_TUNING_STEER" value="5"/>
+        </enum>
+
         <enum name="MAG_CAL_STATUS">
             <entry name="MAG_CAL_NOT_STARTED" value="0"/>
             <entry name="MAG_CAL_WAITING_TO_START" value="1"/>
@@ -981,12 +1015,6 @@
             <entry name="MAG_CAL_RUNNING_STEP_TWO" value="3"/>
             <entry name="MAG_CAL_SUCCESS" value="4"/>
             <entry name="MAG_CAL_FAILED" value="5"/>
-        </enum>
-
-        <enum name="PID_TUNING_AXIS">
-            <entry name="PID_TUNING_ROLL" value="1"/>
-            <entry name="PID_TUNING_PITCH" value="2"/>
-            <entry name="PID_TUNING_YAW" value="3"/>
         </enum>
 
         <enum name="MAV_REMOTE_LOG_DATA_BLOCK_COMMANDS">
@@ -1527,15 +1555,10 @@
         </message>
 
         <!-- 219 to 224 RESERVED for more GOPRO-->
-        <message id="225" name="GPS_ACCURACY">
-            <description>Accuracy statistics for GPS lock</description>
-            <field name="instance" type="uint8_t">Which instance of GPS we're reporting on</field>
-            <field name="h_acc" type="float">GPS-reported horizontal accuracy</field>
-            <field name="s_acc" type="float">GPS-reported speed accuracy</field>
-            <field name="h_vel_filt" type="float">GPS-reported, filtered horizontal velocity</field>
-            <field name="v_vel_filt" type="float">GPS-reported, filtered vertical velocity</field>
-            <field name="p_drift" type="float">GPS position drift</field>
-            <field name="ekf_check_mask" type="uint8_t">Which fields pass EKF checks</field>
+        <message id="226" name="RPM">
+            <description>RPM sensor output</description>
+            <field name="rpm1" type="float">RPM Sensor1</field>
+            <field name="rpm2" type="float">RPM Sensor2</field>
         </message>
     </messages>
 </mavlink>
